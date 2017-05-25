@@ -65,7 +65,7 @@ def execScript(sid, execType, outdated):
   print(timelog() + "Overlord executing " + script['path'] + script['name'] + " (" + str(script['sid']) + ") as a " + execType)
   if outdated == True:
     print(timelog() + script['path'] + script['name'] + " (" + str(script['sid']) + ") outdated")
-    recordSummary(script['sid'], execType, None, None, 'Outdated', '', [])
+    recordSummary(script['sid'], execType, currentUTC(), currentUTC(), 'Outdated', '', [])
     return True
   startTime = currentUTC()
   process = subprocess.Popen([script['path'] + script['name']], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
